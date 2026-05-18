@@ -421,7 +421,7 @@
 
     <nav>
         <div class="container navbar">
-            <div class="logo">portofolio</div>
+            <div class="logo">Wilson Fabian</div>
 
             <div class="menu">
                 <a href="#home">Home</a>
