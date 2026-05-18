@@ -650,56 +650,62 @@
                 <p>Beberapa project yang pernah saya kerjakan</p>
             </div>
 
-            <div class="project-card">
-    <h3>🌤️ WeatherInsight</h3>
-    <p>
-        Website monitoring cuaca realtime berbasis Laravel dan Filament.
-        Dikerjakan untuk tugas akhir mata kuliah Pemrograman Web.
-    </p>
-    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
-        <a href="https://github.com/wilson092/WeatherInsight" target="_blank" style="color: #667eea; font-weight: 600; text-decoration: none;">
+            <div class="projects-grid">
+
+    <!-- Project 1: WeatherInsight (Proyek Akhir) -->
+    <div class="project-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin-bottom: 0;">🌤️ WeatherInsight</h3>
+            <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 600;">⭐ PROYEK AKHIR</span>
+        </div>
+        <p>
+            Website monitoring cuaca realtime berbasis Laravel dan Filament.
+            <strong>Proyek ini merupakan tugas akhir mata kuliah Pemrograman Web (CR002).</strong>
+        </p>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+            <a href="https://github.com/wilson092/WeatherInsight" target="_blank" style="color: #667eea; font-weight: 600; text-decoration: none;">
+                Lihat GitHub →
+            </a>
+            <a href="/docs/Laporan%20Awal%20Projek%20Akhir%20-20240801098%20Wilson%20Fabian.pdf" target="_blank" style="background: #667eea; color: white; padding: 8px 18px; border-radius: 10px; font-weight: 500; text-decoration: none; font-size: 14px; display: inline-block;">
+                📄 Lihat Laporan →
+            </a>
+        </div>
+    </div>
+
+    <!-- Project 2: Currency Converter -->
+    <div class="project-card">
+        <h3>💱 Currency Converter</h3>
+        <p>
+            Aplikasi konversi mata uang secara realtime dengan data kurs terkini.
+        </p>
+        <a href="https://github.com/wilson092/PROJECT-AKHIR-PBO-CR001-" target="_blank" style="color: #667eea; font-weight: 600; text-decoration: none;">
             Lihat GitHub →
         </a>
-        <a href="/docs/Laporan Awal Projek Akhir -20240801098 Wilson Fabian.pdf" target="_blank" style="background: #667eea; color: white; padding: 8px 18px; border-radius: 10px; font-weight: 500; text-decoration: none; font-size: 14px; display: inline-block;">
-    Lihat Laporan →
-</a>
+    </div>
+
+    <!-- Project 3: Grafik Kalkulus 2D -->
+    <div class="project-card">
+        <h3>📈 Grafik Kalkulus 2D</h3>
+        <p>
+            Aplikasi visualisasi grafik fungsi matematika dua dimensi interaktif.
+        </p>
+        <a href="https://github.com/wilson092/Grafik-Kalkulus-2D" target="_blank" style="color: #667eea; font-weight: 600; text-decoration: none;">
+            Lihat GitHub →
         </a>
     </div>
+
+    <!-- Project 4: Chatbot Sederhana -->
+    <div class="project-card">
+        <h3>🤖 Chatbot Sederhana</h3>
+        <p>
+            Aplikasi chatbot sederhana untuk belajar API dan integrasi AI.
+        </p>
+        <a href="https://github.com/wilson092/Chatbot" target="_blank" style="color: #667eea; font-weight: 600; text-decoration: none;">
+            Lihat GitHub →
+        </a>
+    </div>
+
 </div>
-
-                <div class="project-card">
-                    <h3>💱 Currency Converter</h3>
-                    <p>
-                        Aplikasi konversi mata uang secara realtime dengan data kurs terkini.
-                    </p>
-                    <a href="https://github.com/wilson092/PROJECT-AKHIR-PBO-CR001-" target="_blank">
-                        Lihat GitHub →
-                    </a>
-                </div>
-
-                <div class="project-card">
-                    <h3>📈 Grafik Kalkulus 2D</h3>
-                    <p>
-                        Aplikasi visualisasi grafik fungsi matematika dua dimensi interaktif.
-                    </p>
-                    <a href="https://github.com/wilson092/Grafik-Kalkulus-2D" target="_blank">
-                        Lihat GitHub →
-                    </a>
-                </div>
-
-                <div class="project-card">
-                    <h3>🤖 Chatbot Sederhana</h3>
-                    <p>
-                        Aplikasi chatbot sederhana.
-                    </p>
-                    <a href="https://github.com/wilson092/Chatbot" target="_blank">
-                        Lihat GitHub →
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
     </section>
 
     <section class="section" id="contact">
