@@ -429,7 +429,7 @@
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projek</a>
                 <a href="#contact">Kontak</a>
-                <a href="/admin">Admin</a>
+                
             </div>
         </div>
     </nav>
