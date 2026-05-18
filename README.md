@@ -72,8 +72,8 @@ Website ini memiliki **3 halaman utama**:
 | **Role** | Junior Laravel Developer |
 | **Universitas** | Universitas Esa Unggul |
 | **Program Studi** | Teknik Informatika |
-| **Semester** | 6 |
-| **Minat** | Backend Development, Laravel, Filament, Docker |
+| **Semester** | 4 |
+| **Minat** | Backend Development |
 
 ### 📍 Kontak
 
@@ -82,19 +82,6 @@ Website ini memiliki **3 halaman utama**:
 | 📧 **Email** | wilsonfabian6218@student.esaunggul.ac.id |
 | 📱 **Telepon** | 081218619215 |
 | 💻 **GitHub** | [github.com/wilson092](https://github.com/wilson092) |
-
----
-
-## 🚀 Fitur Unggulan
-
-- ✅ **Desain Modern** – Gradasi warna ungu-biru yang elegan
-- ✅ **Responsif** – Tampilan optimal di desktop, tablet, dan mobile
-- ✅ **Glassmorphism** – Efek card transparan dengan blur
-- ✅ **Smooth Scroll** – Navigasi halus antar halaman
-- ✅ **Animasi Scroll** – Efek reveal saat elemen masuk viewport
-- ✅ **Tombol Interaktif** – Hover effect yang menarik
-- ✅ **Tech Stack Icons** – Logo teknologi yang informatif
-- ✅ **Form Kontak** – Memudahkan pengunjung mengirim pesan
 
 
 ## 🔧 Cara Menjalankan di Lokal
