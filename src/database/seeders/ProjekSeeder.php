@@ -38,7 +38,7 @@ class ProjekSeeder extends Seeder
 
         Projek::create([
             'judul' => 'Chatbot Sederhana',
-            'deskripsi' => 'Aplikasi chatbot sederhana (iseng aja buat tes ilmu belajar API).',
+            'deskripsi' => 'Aplikasi chatbot sederhana (iseng aja buat tes ilmu belajar).',
             'link' => 'https://github.com/wilson092/Chatbot',
             'status_progress' => 'Selesai',
             'laporan_pdf' => null,
