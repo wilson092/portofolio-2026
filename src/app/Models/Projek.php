@@ -9,8 +9,8 @@ class Projek extends Model
     protected $fillable = [
         'judul',
         'deskripsi',
-        'nim',
         'link',
         'status_progress',
+        'laporan_pdf',
     ];
 }

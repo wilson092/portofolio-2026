@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->text('deskripsi');
-            $table->string('nim');
             $table->string('link');
             $table->string('status_progress')
                 ->default('Belum Selesai');
+            $table->string('laporan_pdf')->nullable();
             $table->timestamps();
 
         });

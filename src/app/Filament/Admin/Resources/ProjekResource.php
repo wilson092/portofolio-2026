@@ -29,23 +29,25 @@ class ProjekResource extends Resource
 
                 Forms\Components\Textarea::make('deskripsi')
                     ->required(),
-
-                Forms\Components\TextInput::make('nim')
-                    ->required(),
                 Forms\Components\Select::make('status_progress')
                     ->options([
                         'Selesai' => 'Selesai',
                         'Belum Selesai' => 'Belum Selesai',
                     ])
                     ->required(),
+                Forms\Components\TextInput::make('link')
+                    ->label('GitHub')
+                    ->url()
+                    ->required(),
                             ]);
             
     }
 
-   public static function table(Table $table): Table
+  public static function table(Table $table): Table
 {
     return $table
         ->columns([
+
             Tables\Columns\TextColumn::make('judul')
                 ->searchable()
                 ->sortable(),
@@ -54,8 +56,6 @@ class ProjekResource extends Resource
                 ->limit(50)
                 ->wrap(),
 
-            Tables\Columns\TextColumn::make('nim'),
-
             Tables\Columns\TextColumn::make('link')
                 ->label('GitHub')
                 ->url(fn ($record) => $record->link)
@@ -63,13 +63,28 @@ class ProjekResource extends Resource
                 ->color('primary')
                 ->limit(30),
 
-            Tables\Columns\TextColumn::make('created_at')
-                ->dateTime(),
             Tables\Columns\BadgeColumn::make('status_progress')
                 ->colors([
                     'success' => 'Selesai',
                     'danger' => 'Belum Selesai',
                 ]),
+
+            Tables\Columns\TextColumn::make('created_at')
+                ->dateTime(),
+
+        ])
+
+        ->filters([
+            //
+        ])
+
+        ->actions([
+            Tables\Actions\EditAction::make(),
+            Tables\Actions\DeleteAction::make(),
+        ])
+
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
         ]);
 }
 
