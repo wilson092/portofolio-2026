@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             KontakSeeder::class,
             ProjekSeeder::class,
+            PesanSeeder::class,
         ]);
     }
 }

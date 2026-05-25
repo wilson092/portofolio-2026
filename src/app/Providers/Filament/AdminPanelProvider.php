@@ -51,6 +51,12 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->widgets([
     \Awcodes\Overlook\Widgets\OverlookWidget::class,
+    \App\Filament\Admin\Widgets\PortfolioStats::class,
+
+    \App\Filament\Admin\Widgets\ProjectProgress::class,
+
+    \App\Filament\Admin\Widgets\RecentMessages::class,
+
             ])
             ->navigationGroups([
                 NavigationGroup::make()

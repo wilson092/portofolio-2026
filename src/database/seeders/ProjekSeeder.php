@@ -7,11 +7,10 @@ use Illuminate\Database\Seeder;
 
 class ProjekSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
+        Projek::truncate();
+
         Projek::create([
             'judul' => 'WeatherInsight (Projek Akhir)',
             'deskripsi' => 'Website monitoring cuaca realtime berbasis Laravel dan Filament. Dikerjakan untuk tugas akhir mata kuliah Pemrograman Web.',
