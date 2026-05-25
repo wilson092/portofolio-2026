@@ -13,15 +13,20 @@ class ProjekSeeder extends Seeder
 
         Projek::create([
             'judul' => 'WeatherInsight (Projek Akhir)',
-            'deskripsi' => 'Website monitoring cuaca realtime berbasis Laravel dan Filament. Dikerjakan untuk tugas akhir mata kuliah Pemrograman Web.',
+            'deskripsi' => 'WeatherInsight merupakan aplikasi monitoring cuaca real-time berbasis web yang dibangun menggunakan Laravel, Filament, Livewire, MariaDB, Docker, dan OpenWeather API. Sistem dapat menampilkan data cuaca secara realtime, menyimpan histori monitoring, serta memberikan insight dan rekomendasi sederhana berdasarkan kondisi cuaca.',
             'link' => 'https://github.com/wilson092/WeatherInsight',
             'status_progress' => 'Belum Selesai',
             'laporan_pdf' => 'docs/Laporan Awal Projek Akhir -20240801098 Wilson Fabian.pdf',
             'analisis_masalah' => 'Sebagian besar platform cuaca hanya menampilkan informasi umum tanpa analisis sederhana yang mudah dipahami pengguna. Selain itu belum semua sistem menyediakan histori monitoring cuaca dan dashboard administrasi yang terstruktur. WeatherInsight dikembangkan untuk menyediakan monitoring cuaca realtime, histori data, analisis kondisi cuaca, serta rekomendasi aktivitas',
             'kebutuhan_sistem' => 'pengambilan data cuaca realtime dari OpenWeather API, dashboard monitoring dan histori cuaca, autentikasi user dan admin, panel administrasi, analisis cuaca dan prediksi. ',
             
-            'arsitektur' => 'Arsitektur aplikasi menggunakan pola MVC (Model-View-Controller) dengan Laravel sebagai backend dan Filament untuk panel admin. Data cuaca diambil dari API eksternal dan disimpan di database untuk ditampilkan di frontend.',
-            'tech_stack' => json_encode(['Laravel', 'Filament', 'Docker', 'Blade']),
+            'arsitektur' => 'Frontend dibangun menggunakan Blade dan Livewire, backend menggunakan Laravel untuk logika bisnis dan integrasi OpenWeather API, database menggunakan MariaDB, serta panel administrasi menggunakan Filament v3.',
+            'tech_stack' => [
+                        'Laravel',
+                        'Filament',
+                        'Docker',
+                        'Blade',
+                    ],
             'diagram' => 'diagram/weatherinsight.png',
         ]);
 

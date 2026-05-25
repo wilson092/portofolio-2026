@@ -18,4 +18,7 @@ class Projek extends Model
         'tech_stack',
         'diagram',
     ];
+    protected $casts = [
+        'tech_stack' => 'array',
+    ];
 }

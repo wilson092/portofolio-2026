@@ -100,7 +100,11 @@ class ProjekResource extends Resource
                     ->disk('public')
                     ->directory('diagram')
                     ->image()
+                    ->visibility('public')
+                    ->storeFiles(true)
+                    ->nullable()
                     ->openable()
+                    ->downloadable()
                     ->previewable(true),
             ])
             ->columns(2);
