@@ -95,17 +95,16 @@ class ProjekResource extends Resource
                     ->native(false)
                     ->columnSpanFull(),
 
-                Forms\Components\FileUpload::make('diagram')
+               Forms\Components\FileUpload::make('diagram')
                     ->label('ERD / Flowchart')
-                    ->disk('public')
-                    ->directory('diagram')
                     ->image()
+                    ->disk('public')
+                    ->directory('docs')
                     ->visibility('public')
-                    ->storeFiles(true)
-                    ->nullable()
+                    ->preserveFilenames()
                     ->openable()
                     ->downloadable()
-                    ->previewable(true),
+                    ->nullable(),
             ])
             ->columns(2);
     }
