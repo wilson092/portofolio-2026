@@ -59,7 +59,49 @@ class ProjekResource extends Resource
                         fn ($file) =>
                         time() . '-' . $file->getClientOriginalName()
                     ),
+                Forms\Components\Textarea::make('analisis_masalah')
+                    ->rows(5)
 
+                    ->columnSpanFull(),
+
+                Forms\Components\Textarea::make('kebutuhan_sistem')
+                    ->rows(5)
+
+                    ->columnSpanFull(),
+
+                Forms\Components\TextInput::make('arsitektur')
+                    ->placeholder('Laravel + Filament + MariaDB'),
+
+                Forms\Components\Select::make('tech_stack')
+                    ->multiple()
+                    ->options([
+                        'Laravel' => 'Laravel',
+                        'Filament' => 'Filament',
+                        'Livewire' => 'Livewire',
+                        'Blade' => 'Blade',
+                        'PHP' => 'PHP',
+                        'MariaDB' => 'MariaDB',
+                        'MySQL' => 'MySQL',
+                        'Docker' => 'Docker',
+                        'JavaScript' => 'JavaScript',
+                        'OpenWeatherMap API' => 'OpenWeatherMap API',
+                        'Bootstrap' => 'Bootstrap',
+                        'Tailwind CSS' => 'Tailwind CSS',
+                        'Git' => 'Git',
+                        'REST API' => 'REST API',
+                    ])
+                    ->searchable()
+                    ->preload()
+                    ->native(false)
+                    ->columnSpanFull(),
+
+                Forms\Components\FileUpload::make('diagram')
+                    ->label('ERD / Flowchart')
+                    ->disk('public')
+                    ->directory('diagram')
+                    ->image()
+                    ->openable()
+                    ->previewable(true),
             ])
             ->columns(2);
     }

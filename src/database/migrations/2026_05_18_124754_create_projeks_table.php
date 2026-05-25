@@ -19,6 +19,15 @@ return new class extends Migration
             $table->string('status_progress')
                 ->default('Belum Selesai');
             $table->string('laporan_pdf')->nullable();
+            $table->longText('analisis_masalah')->nullable();
+
+            $table->longText('kebutuhan_sistem')->nullable();
+
+            $table->string('arsitektur')->nullable();
+
+            $table->json('tech_stack')->nullable();
+
+            $table->string('diagram')->nullable();
             $table->timestamps();
 
         });

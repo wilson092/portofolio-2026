@@ -331,6 +331,64 @@
             margin-bottom: 40px;
         }
 
+        /* ── SECTION STYLES (NEW) ── */
+        .info-section {
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink3);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border2);
+        }
+
+        .section-content {
+            color: var(--ink3);
+            line-height: 1.9;
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .tech-stack-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tech-badge {
+            background: var(--bg);
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--ink2);
+            border: 1px solid var(--border2);
+            letter-spacing: 0.01em;
+        }
+
+        .diagram-image {
+            margin-top: 8px;
+            max-width: 100%;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border2);
+            box-shadow: var(--shadow-sm);
+        }
+
         /* ── ACTIONS ── */
         .btn-row {
             display: flex;
@@ -516,6 +574,74 @@
                 <div class="desc-label">Deskripsi</div>
                 <p class="card-desc">{{ $projek->deskripsi }}</p>
 
+                <!-- NEW SECTIONS: Analisis Masalah, Kebutuhan Sistem, Arsitektur & Tech Stack, Diagram -->
+                
+                @php
+                    // Decode tech_stack if it's a JSON string
+                    $techStackArray = [];
+                    if (!empty($projek->tech_stack)) {
+                        if (is_string($projek->tech_stack)) {
+                            $decoded = json_decode($projek->tech_stack, true);
+                            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                                $techStackArray = $decoded;
+                            } elseif (is_array($projek->tech_stack)) {
+                                $techStackArray = $projek->tech_stack;
+                            }
+                        } elseif (is_array($projek->tech_stack)) {
+                            $techStackArray = $projek->tech_stack;
+                        }
+                    }
+                @endphp
+
+                <!-- 1. Analisis Masalah -->
+                @if(!empty($projek->analisis_masalah))
+                <div class="info-section">
+                    <div class="section-label">Analisis Masalah</div>
+                    <div class="section-content">
+                        {{ $projek->analisis_masalah }}
+                    </div>
+                </div>
+                @endif
+
+                <!-- 2. Kebutuhan Sistem -->
+                @if(!empty($projek->kebutuhan_sistem))
+                <div class="info-section">
+                    <div class="section-label">Kebutuhan Sistem</div>
+                    <div class="section-content">
+                        {{ $projek->kebutuhan_sistem }}
+                    </div>
+                </div>
+                @endif
+
+                <!-- 3. Arsitektur & Tech Stack -->
+                @if(!empty($projek->arsitektur) || !empty($techStackArray))
+                <div class="info-section">
+                    <div class="section-label">Arsitektur & Tech Stack</div>
+                    
+                    @if(!empty($projek->arsitektur))
+                    <div class="section-content">
+                        {{ $projek->arsitektur }}
+                    </div>
+                    @endif
+                    
+                    @if(!empty($techStackArray))
+                    <div class="tech-stack-list">
+                        @foreach($techStackArray as $tech)
+                            <span class="tech-badge">{{ $tech }}</span>
+                        @endforeach
+                    </div>
+                    @endif
+                </div>
+                @endif
+
+                <!-- 4. Diagram (ERD / Flowchart) -->
+                @if(!empty($projek->diagram))
+                <div class="info-section">
+                    <div class="section-label">Diagram</div>
+                    <img src="{{ Storage::url($projek->diagram) }}" alt="Diagram" class="diagram-image">
+                </div>
+                @endif
+
                 <!-- Buttons -->
                 <div class="btn-row">
 
@@ -565,4 +691,3 @@
 
 </body>
 </html>
-```

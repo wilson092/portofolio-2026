@@ -12,5 +12,10 @@ class Projek extends Model
         'link',
         'status_progress',
         'laporan_pdf',
+        'analisis_masalah',
+        'kebutuhan_sistem',
+        'arsitektur',
+        'tech_stack',
+        'diagram',
     ];
 }
