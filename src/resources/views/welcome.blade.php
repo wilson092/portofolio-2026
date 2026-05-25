@@ -485,7 +485,7 @@
         <div class="container hero-wrapper">
 
             <div class="hero-text">
-                <span>Junior Laravel Developer</span>
+              
 
                 <h1>
                     Halo, Saya <br>
@@ -513,8 +513,119 @@
                 <ul>
                     @if($profil && $profil->tech_stack && is_array($profil->tech_stack))
                         @foreach($profil->tech_stack as $tech)
+                            @php
+                                $techName = is_array($tech) ? ($tech['name'] ?? $tech) : $tech;
+                                $techNameLower = strtolower($techName);
+                            @endphp
                             <li>
-                                {{ is_array($tech) ? ($tech['name'] ?? $tech) : $tech }}
+                                @if(strpos($techNameLower, 'laravel') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#FF2D20" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M2 17L12 22L22 17" stroke="#FF2D20" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M2 12L12 17L22 12" stroke="#FF2D20" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'filament') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4H20V20H4V4Z" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 8H16V16H8V8Z" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'livewire') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L15 9H22L16 14L19 21L12 16.5L5 21L8 14L2 9H9L12 2Z" fill="#FBBF24" stroke="#FBBF24" stroke-width="1"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'blade') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L15 9H22L16 14L19 21L12 16.5L5 21L8 14L2 9H9L12 2Z" fill="#38BDF8" stroke="#38BDF8" stroke-width="1"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'docker') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4L20 4" stroke="#2496ED" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M4 12L20 12" stroke="#2496ED" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M4 20L20 20" stroke="#2496ED" stroke-width="1.5" stroke-linecap="round"/>
+                                        <circle cx="7" cy="4" r="1.5" fill="#2496ED"/>
+                                        <circle cx="7" cy="12" r="1.5" fill="#2496ED"/>
+                                        <circle cx="7" cy="20" r="1.5" fill="#2496ED"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'mariadb') !== false || strpos($techNameLower, 'mysql') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="12" cy="5" rx="9" ry="3" stroke="#00758D" stroke-width="1.5"/>
+                                        <path d="M3 5V19C3 20.66 7 22 12 22C17 22 21 20.66 21 19V5" stroke="#00758D" stroke-width="1.5"/>
+                                        <path d="M3 12C3 13.66 7 15 12 15C17 15 21 13.66 21 12" stroke="#00758D" stroke-width="1.5"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'git') !== false && strpos($techNameLower, 'github') === false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12C0 17.3 3.44 21.8 8.21 23.39C8.81 23.5 9.03 23.13 9.03 22.81C9.03 22.51 9.02 21.8 9.02 20.95C6.68 21.42 5.91 19.96 5.66 19.23C5.52 18.86 4.96 17.63 4.46 17.34C4.05 17.11 3.48 16.64 4.45 16.63C5.38 16.62 6.04 17.48 6.28 17.86C7.29 19.54 8.92 19.09 9.07 18.77C9.18 18.34 9.34 17.97 9.51 17.75C7.83 17.58 6.07 16.86 6.07 12.65C6.07 11.44 6.48 10.44 7.15 9.67C7.03 9.49 6.66 8.35 7.23 6.82C7.23 6.82 8.04 6.62 9.03 7.36C9.79 7.07 10.61 6.93 11.42 6.92C12.23 6.93 13.05 7.07 13.81 7.36C14.8 6.62 15.61 6.82 15.61 6.82C16.18 8.35 15.81 9.49 15.69 9.67C16.36 10.44 16.77 11.43 16.77 12.65C16.77 16.87 15 17.58 13.31 17.74C13.52 17.93 13.7 18.26 13.7 18.78C13.7 19.54 13.68 20.8 13.68 20.95C13.68 21.27 13.9 21.64 14.5 21.51C19.27 19.93 22.72 15.41 22.72 10.08C22.72 4.79 17.87 0.13 12.02 0.13L12 0Z" fill="#24292E"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'github') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10" stroke="#1F2937" stroke-width="1.5"/>
+                                        <path d="M9 16C8 14.5 7.5 13 9 12" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15 16C16 14.5 16.5 13 15 12" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M10 10H10.01M14 10H14.01" stroke="#1F2937" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'tailwind') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" stroke="#06B6D4" stroke-width="1.5"/>
+                                        <path d="M8 12L11 15L16 9" stroke="#06B6D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'php') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4C2 4 2 6 4 6H8C8 6 8 4 8 4H4Z" stroke="#777BB4" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M4 8C2 8 2 10 4 10H8C8 10 8 8 8 8H4Z" stroke="#777BB4" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M4 12C2 12 2 14 4 14H8C8 14 8 12 8 12H4Z" stroke="#777BB4" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'javascript') !== false || strpos($techNameLower, 'js') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#F7DF1E" stroke-width="1.5"/>
+                                        <path d="M8 13C8 14.5 7.5 16 6 16" stroke="#F7DF1E" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M16 13C16 14.5 16.5 16 18 16" stroke="#F7DF1E" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'react') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="2" stroke="#61DAFB" stroke-width="1.5"/>
+                                        <ellipse cx="12" cy="12" rx="8" ry="4" stroke="#61DAFB" stroke-width="1.5"/>
+                                        <ellipse cx="12" cy="12" rx="8" ry="4" stroke="#61DAFB" stroke-width="1.5" transform="rotate(60 12 12)"/>
+                                        <ellipse cx="12" cy="12" rx="8" ry="4" stroke="#61DAFB" stroke-width="1.5" transform="rotate(120 12 12)"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'vue') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L3 20H9L12 14L15 20H21L12 2Z" stroke="#4FC08D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 10.5L8 19" stroke="#4FC08D" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'bootstrap') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#7952B3" stroke-width="1.5"/>
+                                        <path d="M8 9H12C13.1 9 14 9.9 14 11C14 12.1 13.1 13 12 13H8V9Z" stroke="#7952B3" stroke-width="1.5"/>
+                                        <path d="M8 13H12C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17H8V13Z" stroke="#7952B3" stroke-width="1.5"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'rest api') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4H20V20H4V4Z" stroke="#009B77" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 8L16 16M16 8L8 16" stroke="#009B77" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'html') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 2L5 20L12 22L19 20L21 2H3Z" stroke="#E34C26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 19V4M8 8H16M8 12H14M8 16H12" stroke="#E34C26" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'css') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 2L5 20L12 22L19 20L21 2H3Z" stroke="#563D7C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9 8L12 14L15 8M9 12H15M10 16H14" stroke="#563D7C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'figma') !== false)
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="8" r="3.5" stroke="#F24E1E" stroke-width="1.5"/>
+                                        <path d="M8.5 14.5C8.5 12.567 9.567 11 12 11C14.433 11 15.5 12.567 15.5 14.5C15.5 16.433 14.433 17 12 17C9.567 17 8.5 16.433 8.5 14.5Z" stroke="#F24E1E" stroke-width="1.5"/>
+                                        <path d="M5 14.5L7 12V17L5 14.5Z" stroke="#F24E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M19 14.5L17 12V17L19 14.5Z" stroke="#F24E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                @else
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L15 9H22L16 14L19 21L12 16.5L5 21L8 14L2 9H9L12 2Z" fill="#667eea" stroke="#667eea" stroke-width="1"/>
+                                    </svg>
+                                @endif
+                                {{ $techName }}
                             </li>
                         @endforeach
                     @else
@@ -565,13 +676,18 @@
                             elseif(strpos($techNameLower, 'blade') !== false) $borderColor = '#38BDF8';
                             elseif(strpos($techNameLower, 'docker') !== false) $borderColor = '#2496ED';
                             elseif(strpos($techNameLower, 'mariadb') !== false || strpos($techNameLower, 'mysql') !== false) $borderColor = '#00758D';
-                            elseif(strpos($techNameLower, 'git') !== false) $borderColor = '#24292E';
+                            elseif(strpos($techNameLower, 'git') !== false && strpos($techNameLower, 'github') === false) $borderColor = '#24292E';
+                            elseif(strpos($techNameLower, 'github') !== false) $borderColor = '#1F2937';
                             elseif(strpos($techNameLower, 'tailwind') !== false) $borderColor = '#06B6D4';
                             elseif(strpos($techNameLower, 'php') !== false) $borderColor = '#777BB4';
                             elseif(strpos($techNameLower, 'javascript') !== false || strpos($techNameLower, 'js') !== false) $borderColor = '#F7DF1E';
                             elseif(strpos($techNameLower, 'react') !== false) $borderColor = '#61DAFB';
                             elseif(strpos($techNameLower, 'vue') !== false) $borderColor = '#4FC08D';
                             elseif(strpos($techNameLower, 'bootstrap') !== false) $borderColor = '#7952B3';
+                            elseif(strpos($techNameLower, 'rest api') !== false) $borderColor = '#009B77';
+                            elseif(strpos($techNameLower, 'html') !== false) $borderColor = '#E34C26';
+                            elseif(strpos($techNameLower, 'css') !== false) $borderColor = '#563D7C';
+                            elseif(strpos($techNameLower, 'figma') !== false) $borderColor = '#F24E1E';
                         @endphp
                         <div class="skill-card" style="border-top-color: {{ $borderColor }};">
                             <div class="skill-icon">
@@ -609,9 +725,38 @@
                                         <path d="M3 5V19C3 20.66 7 22 12 22C17 22 21 20.66 21 19V5" stroke="#00758D" stroke-width="1.5"/>
                                         <path d="M3 12C3 13.66 7 15 12 15C17 15 21 13.66 21 12" stroke="#00758D" stroke-width="1.5"/>
                                     </svg>
-                                @elseif(strpos($techNameLower, 'git') !== false)
+                                @elseif(strpos($techNameLower, 'git') !== false && strpos($techNameLower, 'github') === false)
                                     <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 0C5.37 0 0 5.37 0 12C0 17.3 3.44 21.8 8.21 23.39C8.81 23.5 9.03 23.13 9.03 22.81C9.03 22.51 9.02 21.8 9.02 20.95C6.68 21.42 5.91 19.96 5.66 19.23C5.52 18.86 4.96 17.63 4.46 17.34C4.05 17.11 3.48 16.64 4.45 16.63C5.38 16.62 6.04 17.48 6.28 17.86C7.29 19.54 8.92 19.09 9.07 18.77C9.18 18.34 9.34 17.97 9.51 17.75C7.83 17.58 6.07 16.86 6.07 12.65C6.07 11.44 6.48 10.44 7.15 9.67C7.03 9.49 6.66 8.35 7.23 6.82C7.23 6.82 8.04 6.62 9.03 7.36C9.79 7.07 10.61 6.93 11.42 6.92C12.23 6.93 13.05 7.07 13.81 7.36C14.8 6.62 15.61 6.82 15.61 6.82C16.18 8.35 15.81 9.49 15.69 9.67C16.36 10.44 16.77 11.43 16.77 12.65C16.77 16.87 15 17.58 13.31 17.74C13.52 17.93 13.7 18.26 13.7 18.78C13.7 19.54 13.68 20.8 13.68 20.95C13.68 21.27 13.9 21.64 14.5 21.51C19.27 19.93 22.72 15.41 22.72 10.08C22.72 4.79 17.87 0.13 12.02 0.13L12 0Z" fill="#24292E"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'github') !== false)
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10" stroke="#1F2937" stroke-width="1.5"/>
+                                        <path d="M9 16C8 14.5 7.5 13 9 12" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15 16C16 14.5 16.5 13 15 12" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M10 10H10.01M14 10H14.01" stroke="#1F2937" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'rest api') !== false)
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4H20V20H4V4Z" stroke="#009B77" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 8L16 16M16 8L8 16" stroke="#009B77" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'html') !== false)
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 2L5 20L12 22L19 20L21 2H3Z" stroke="#E34C26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 19V4M8 8H16M8 12H14M8 16H12" stroke="#E34C26" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'css') !== false)
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 2L5 20L12 22L19 20L21 2H3Z" stroke="#563D7C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9 8L12 14L15 8M9 12H15M10 16H14" stroke="#563D7C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                @elseif(strpos($techNameLower, 'figma') !== false)
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="8" r="3.5" stroke="#F24E1E" stroke-width="1.5"/>
+                                        <path d="M8.5 14.5C8.5 12.567 9.567 11 12 11C14.433 11 15.5 12.567 15.5 14.5C15.5 16.433 14.433 17 12 17C9.567 17 8.5 16.433 8.5 14.5Z" stroke="#F24E1E" stroke-width="1.5"/>
+                                        <path d="M5 14.5L7 12V17L5 14.5Z" stroke="#F24E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M19 14.5L17 12V17L19 14.5Z" stroke="#F24E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 @elseif(strpos($techNameLower, 'tailwind') !== false)
                                     <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

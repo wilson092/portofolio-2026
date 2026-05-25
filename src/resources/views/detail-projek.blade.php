@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+    @php
+        use Illuminate\Support\Facades\Storage;
+    @endphp
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $projek->judul }}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
 
@@ -14,7 +23,7 @@
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family:'Poppins', sans-serif;
+            font-family:'Poppins',sans-serif;
         }
 
         body{
@@ -28,19 +37,19 @@
             margin:auto;
         }
 
-        .card{
-            background:white;
-            padding:50px;
-            border-radius:30px;
-            box-shadow:0 20px 50px rgba(0,0,0,0.08);
-        }
-
         .back{
             display:inline-block;
             margin-bottom:30px;
             text-decoration:none;
             color:#4f46e5;
             font-weight:600;
+        }
+
+        .card{
+            background:white;
+            padding:50px;
+            border-radius:30px;
+            box-shadow:0 20px 50px rgba(0,0,0,.08);
         }
 
         .badge{
@@ -50,6 +59,7 @@
             color:white;
             font-size:14px;
             margin-bottom:20px;
+            font-weight:600;
         }
 
         .selesai{
@@ -68,16 +78,8 @@
         .desc{
             color:#64748b;
             line-height:1.9;
-            margin-bottom:30px;
+            margin-bottom:35px;
             font-size:17px;
-        }
-
-        .info{
-            margin-bottom:30px;
-        }
-
-        .info strong{
-            color:#0f172a;
         }
 
         .button-wrapper{
@@ -87,12 +89,18 @@
         }
 
         .btn{
-            display:inline-block;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
             padding:14px 24px;
             border-radius:14px;
             text-decoration:none;
             font-weight:600;
-            transition:.3s;
+            transition:.25s;
+        }
+
+        .btn:hover{
+            transform:translateY(-2px);
         }
 
         .btn-primary{
@@ -113,58 +121,71 @@
             background:#020617;
         }
 
+        .empty{
+            background:#e2e8f0;
+            color:#64748b;
+            cursor:not-allowed;
+        }
+
     </style>
+
 </head>
+
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <a href="/" class="back">
-            ← Kembali ke Home
-        </a>
+    <a href="/" class="back">
+        ← Kembali ke Home
+    </a>
 
-        <div class="card">
+    <div class="card">
 
-            <div class="badge {{ $projek->status_progress == 'Selesai' ? 'selesai' : 'belum' }}">
-                {{ $projek->status_progress }}
-            </div>
+        <div class="badge {{ $projek->status_progress === 'Selesai' ? 'selesai' : 'belum' }}">
+            {{ $projek->status_progress }}
+        </div>
 
-            <h1>
-                {{ $projek->judul }}
-            </h1>
+        <h1>
+            {{ $projek->judul }}
+        </h1>
 
-            <p class="desc">
-                {{ $projek->deskripsi }}
-            </p>
+        <p class="desc">
+            {{ $projek->deskripsi }}
+        </p>
 
+        <div class="button-wrapper">
 
-            <div class="button-wrapper">
+            <a
+                href="{{ $projek->link }}"
+                target="_blank"
+                class="btn btn-primary"
+            >
+                GitHub
+            </a>
+
+            @if($projek->laporan_pdf)
 
                 <a
-                    href="{{ $projek->link }}"
+                    href="{{ Storage::url($projek->laporan_pdf) }}"
                     target="_blank"
-                    class="btn btn-primary"
+                    class="btn btn-secondary"
                 >
-                    GitHub
+                    Lihat Laporan
                 </a>
 
-                @if ($projek->laporan_pdf)
+            @else
 
-                    <a
-                        href="{{ asset($projek->laporan_pdf) }}"
-                        target="_blank"
-                        class="btn btn-secondary"
-                    >
-                        Lihat Laporan
-                    </a>
+                <span class="btn empty">
+                    Tidak Ada Laporan
+                </span>
 
-                @endif
-
-            </div>
+            @endif
 
         </div>
 
     </div>
 
+</div>
+
 </body>
-</html>w
+</html>
