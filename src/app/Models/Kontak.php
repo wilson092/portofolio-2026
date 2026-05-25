@@ -8,6 +8,7 @@ class Kontak extends Model
 {
     protected $fillable = [
         'nama',
+        'profesi',
         'email',
         'no_telpon',
         'github',

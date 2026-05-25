@@ -1104,16 +1104,12 @@
         <div class="hero-grid">
 
             <div class="hero-text">
-                <div class="hero-eyebrow animate-up">Laravel Developer &amp; Builder</div>
+                <div class="hero-eyebrow animate-up">{{ $profil->profesi ?? 'Laravel Developer & Builder' }}</div>
 
                 <h1 class="hero-name animate-up delay-1">
                     Halo, Saya<br>
                     <span class="accent-word">{{ $profil->nama ?? '-' }}</span> 👋
                 </h1>
-
-                <p class="hero-desc animate-up delay-2">
-                    {{ $profil->deskripsi ?? '-' }}
-                </p>
 
                 <div class="hero-actions animate-up delay-3">
                     <a href="#projects" class="btn btn-primary">
@@ -1214,7 +1210,7 @@
                     <div class="stat-label">Tech Stack</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">2026</div>
+                    <div class="stat-number">{{ date('Y') }}</div>
                     <div class="stat-label">Tahun Aktif</div>
                 </div>
             </div>

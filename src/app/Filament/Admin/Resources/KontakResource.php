@@ -28,6 +28,11 @@ class KontakResource extends Resource
                 Forms\Components\TextInput::make('nama')
                     ->required(),
 
+                Forms\Components\TextInput::make('profesi')
+                    ->label('Profesi / Job Title')
+
+                    ->required(),
+
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required(),
@@ -97,6 +102,9 @@ class KontakResource extends Resource
             ->columns([
 
                 Tables\Columns\TextColumn::make('nama')
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('profesi')
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('email')

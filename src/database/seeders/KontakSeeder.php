@@ -15,7 +15,8 @@ class KontakSeeder extends Seeder
         //
         Kontak::create([
             'nama' => 'Wilson Fabian',
-            'email' => 'wilsonfabian6218@student.esaunggul.ac.id',
+            'profesi' => 'Web Developer',
+            'email' => 'wilsonfabian6218@gmail.com',
             'no_telpon' => '081218619215',
             'github' => 'https://github.com/wilson092',
             'deskripsi' =>'Nama saya Wilson Fabian, mahasiswa Teknik Informatika semester 4. Saya mulai tertarik dengan dunia 
