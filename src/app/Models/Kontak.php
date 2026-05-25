@@ -11,5 +11,11 @@ class Kontak extends Model
         'email',
         'no_telpon',
         'github',
+        'deskripsi',
+        'tech_stack',
+    ];
+
+    protected $casts = [
+        'tech_stack' => 'array',
     ];
 }

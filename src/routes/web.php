@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use App\Http\Controllers\ProjekController;
 use App\Http\Controllers\ContactController;
-
+use App\Models\Kontak;
+use App\Models\Projek;
+use App\Http\Controllers\PesanController;
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
 */
@@ -28,7 +30,10 @@ Livewire::setScriptRoute(function ($handle) {
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $profil = Kontak::first();
+    $projeks = Projek::all();
+    
+    return view('welcome', compact('profil', 'projeks'));
 })->name('home');
 
 /*
@@ -45,3 +50,7 @@ Route::get('/projek', [ProjekController::class, 'index'])
 Route::get('/projek/{id}', [ProjekController::class, 'show'])
     ->name('projek.show');
 
+Route::post(
+    '/kontak',
+    [PesanController::class, 'store']
+)->name('kontak.store');

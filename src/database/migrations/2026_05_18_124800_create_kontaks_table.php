@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('no_telpon');
             $table->string('github')
                 ->default('https://github.com/wilson092');
+            $table->text('deskripsi');
+            $table->json('tech_stack')->nullable();
+
             $table->timestamps();
         });
     }
