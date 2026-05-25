@@ -1201,7 +1201,7 @@
 
             <div class="about-stats">
                 <div class="stat-card">
-                    <div class="stat-number">{{ $projeks->count() }}+</div>
+                    <div class="stat-number">{{ $projeks->count() }}</div>
                     <div class="stat-label">Proyek Dikerjakan</div>
                     <div class="stat-body">Dari berbagai skala dan kebutuhan bisnis, selalu berorientasi pada kualitas.</div>
                 </div>
