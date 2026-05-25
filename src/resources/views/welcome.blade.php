@@ -525,7 +525,7 @@
         /* ─── SKILLS ─────────────────────────────────── */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
@@ -1209,10 +1209,7 @@
                     <div class="stat-number">{{ $profil->tech_stack ? count($profil->tech_stack) : 0 }}</div>
                     <div class="stat-label">Tech Stack</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">{{ date('Y') }}</div>
-                    <div class="stat-label">Tahun Aktif</div>
-                </div>
+                
             </div>
         </div>
 
