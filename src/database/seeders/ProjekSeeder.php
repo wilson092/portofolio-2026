@@ -27,7 +27,7 @@ class ProjekSeeder extends Seeder
                         'Docker',
                         'Blade',
                     ],
-            'diagram' => 'diagram/weatherinsight.png',
+            'diagram' => 'docs/weatherinsight.png',
         ]);
 
         Projek::create([
