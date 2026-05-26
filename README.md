@@ -1,8 +1,9 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=🌐+Personal+Portfolio;Laravel+%2B+Filament+v3+%2B+Docker;Built+by+Wilson+Fabian" alt="Typing SVG" />
+# 🌐 Personal Portfolio
 
-<br/>
+### Built by **Wilson Fabian**
+
 
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![Filament](https://img.shields.io/badge/Filament_v3-FDAE4B?style=for-the-badge&logo=filament&logoColor=black)
