@@ -684,7 +684,7 @@
 <!-- ── FOOTER ── -->
 <footer>
     <div class="footer-inner">
-        <div class="footer-logo">Portfolio</div>
+        <div class="footer-logo">Portfolio TESTING</div>
         <p class="footer-copy">© {{ date('Y') }} — Junior Laravel Developer</p>
     </div>
 </footer>
